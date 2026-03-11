@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+/* ===== LIGHT MODE (Default) ===== */
+:root {
+  --paper-bg: #fdfdfb;
+  --card-bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-muted: rgba(0,0,0,0.4);
+  --border-color: rgba(0,0,0,0.05);
+  --slider-track: rgba(0,0,0,0.05);
+  --slider-thumb: #000;
+  --code-bg: rgba(0,0,0,0.95);
+  --code-text: #a1a1aa;
+  --dropdown-bg: #ffffff;
+}
+
+/* ===== DARK MODE ===== */
+.dark {
+  --paper-bg: #0a0a0a;
+  --card-bg: #141414;
+  --text-primary: #f0f0f0;
+  --text-muted: rgba(255,255,255,0.4);
+  --border-color: rgba(255,255,255,0.08);
+  --slider-track: rgba(255,255,255,0.15);
+  --slider-thumb: #fff;
+  --code-bg: #1a1a1a;
+  --code-text: #71717a;
+  --dropdown-bg: #141414;
+}
+
+body {
+  background-color: var(--paper-bg);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Paper dot pattern - light only */
+body:not(.dark) {
+  background-image: 
+    radial-gradient(#000 0.5px, transparent 0.5px),
+    radial-gradient(#000 0.5px, var(--paper-bg) 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  background-attachment: fixed;
+  opacity: 0.98;
+}
+
+/* Dark dot pattern */
+body.dark {
+  background-image: 
+    radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+}
+
+/* ===== Range Slider ===== */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--slider-track);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--slider-thumb);
+  cursor: pointer;
+  transition: transform 0.15s;
+  border: none;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+/* Firefox */
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--slider-track);
+  border: none;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--slider-thumb);
+  cursor: pointer;
+  border: none;
+}
+
+/* ===== Cards ===== */
+.paper-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  border-radius: 1.5rem;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.dark .paper-card {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* ===== Header ===== */
+.dark header {
+  border-color: var(--border-color);
+}
+
+/* ===== Font Selector ===== */
+.dark #font-dropdown {
+  background: var(--dropdown-bg);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.dark #font-dropdown input {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-primary);
+}
+
+.dark #font-dropdown button:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.dark #font-count {
+  background: var(--dropdown-bg);
+  border-color: var(--border-color);
+}
+
+/* ===== Code Block ===== */
+.dark .code-block {
+  background: var(--code-bg);
+  border-color: rgba(255,255,255,0.05);
+}
+
+/* ===== Focus ===== */
+#target-text:focus {
+  outline: none;
+}
+
+/* ===== Footer ===== */
+.dark footer {
+  border-color: var(--border-color);
+}
+
+/* ===== Theme Toggle ===== */
+.dark #theme-toggle {
+  border-color: rgba(255,255,255,0.15);
+}
+
+/* ===== Selection ===== */
+.dark ::selection {
+  background: #fff;
+  color: #000;
+}
+
+/* ===== Reset Button ===== */
+.reset-btn {
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+.reset-btn:hover {
+  background: var(--text-primary);
+  color: var(--paper-bg);
+}
+
+/* ===== Code Block ===== */
+.code-block {
+  background: var(--code-bg);
+  color: var(--code-text);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== Copy Button ===== */
+.dark #copy-btn {
+  background: #fff;
+  color: #000;
+}
+
+/* ===== Header/Footer borders ===== */
+.dark header,
+.dark footer {
+  border-color: var(--border-color);
+}

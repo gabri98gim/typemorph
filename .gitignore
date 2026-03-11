@@ -1,0 +1,18 @@
+# Dependencias (muy pesadas)
+node_modules/
+
+# Archivos de construcción (se generan solos)
+dist/
+dist-ssr/
+*.local
+
+# Logs y basura del sistema
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+.env
+
+# Editor de código
+.antigravity/
+.idea/
